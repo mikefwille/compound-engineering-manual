@@ -36,7 +36,7 @@ describe("ce-handoff portable runtime contract", () => {
     expect(frontmatter![1]).toMatch(/^name: ce-handoff$/m)
     expect(frontmatter![1]).toMatch(/^description:.*(?:hand off|handoff).*(?:resume|find|read)/im)
     expect(frontmatter![1]).toMatch(/^argument-hint:.*create.*resume/im)
-    expect(frontmatter![1]).not.toMatch(/^disable-model-invocation:/m)
+    expect(frontmatter![1]).toMatch(/^disable-model-invocation: true$/m)
   })
 
   test("routes bare invocation to create and supports explicit or natural intent", () => {

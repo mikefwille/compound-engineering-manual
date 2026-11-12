@@ -2,6 +2,7 @@
 name: ce-setup
 description: "Check Compound Engineering's tools and repo config and fix what it finds, scaffold a Compound Pack with `pack:<id>`, or draft and refresh coding standards and review docs from pull request history. Use when setting up or diagnosing Compound Engineering, or when creating or updating CODING_STANDARDS.md or REVIEW.md, including on a schedule."
 argument-hint: "[pack:<id> | standards] [mode:non-interactive]"
+disable-model-invocation: true
 ---
 
 # Compound Engineering Setup

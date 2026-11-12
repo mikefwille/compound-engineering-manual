@@ -1,7 +1,8 @@
 ---
 name: ce-noslop
-description: "Rewrite, check, or draft prose so it carries no AI writing tells, reads plainly on the first read, and keeps every source fact. Use when asked to make writing plainer or free of those tells, to check writing for them, or when drafting from supplied content. Use ce-promote for channel-specific marketing copy."
+description: "Rewrite, check, or draft prose so it carries no AI writing tells and keeps every source fact. Use when asked to make writing plainer or free of those tells, to check writing for them, or when drafting from supplied content. Use ce-promote for channel-specific marketing copy."
 argument-hint: "[mode:author|edit|detect] [text, file path, or nothing]"
+disable-model-invocation: true
 ---
 
 # Write without slop

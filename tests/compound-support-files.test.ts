@@ -245,12 +245,12 @@ describe("ce-compound job router and the ce-compound-refresh shim", () => {
     expect(await shim()).toContain("Next time, use `/ce-compound mode:refresh mode:non-interactive`.")
   })
 
-  test("the shim stays model-invocable so a standing instruction naming it keeps working", async () => {
-    expect(await shim()).not.toContain("disable-model-invocation")
+  test("the shim follows the manual fork invocation policy", async () => {
+    expect(await shim()).toContain("disable-model-invocation: true")
   })
 
-  test("the shim directory holds nothing but SKILL.md", async () => {
-    expect(await readdir(path.join(PLUGIN_ROOT, "ce-compound-refresh"))).toEqual(["SKILL.md"])
+  test("the shim contains only its instructions and Codex policy", async () => {
+    expect((await readdir(path.join(PLUGIN_ROOT, "ce-compound-refresh"))).sort()).toEqual(["SKILL.md", "agents"].sort())
   })
 })
 

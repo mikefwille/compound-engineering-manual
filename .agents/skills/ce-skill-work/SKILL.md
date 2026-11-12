@@ -1,6 +1,7 @@
 ---
 name: ce-skill-work
 description: "Applies this repository's skill-authoring standard as a procedure. Use for any change to, or judgment about, a file under skills/** — a SKILL.md, a reference, a persona prompt, a bundled script's instructions: creating a skill, editing one, reviewing a skill change, or acting on review feedback (human or bot) about one. Not for src/, tests/, or scripts/ code."
+disable-model-invocation: true
 ---
 
 # CE Skill Work

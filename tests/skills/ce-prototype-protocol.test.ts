@@ -24,10 +24,10 @@ function frontmatter(body: string): string {
 }
 
 describe("ce-prototype protocol", () => {
-  test("frontmatter is model-invocable and names adjacent negatives", () => {
+  test("frontmatter is manual-only and retains adjacent negatives", () => {
     const fm = frontmatter(SKILL_BODY)
     expect(fm).toMatch(/^name:\s*ce-prototype\s*$/m)
-    expect(fm).not.toMatch(/disable-model-invocation/)
+    expect(fm).toMatch(/^disable-model-invocation: true$/m)
     const description = fm.match(/^description:\s*(.+)$/m)?.[1] ?? ""
     expect(description.length).toBeGreaterThan(0)
     expect(description.length).toBeLessThanOrEqual(1024)

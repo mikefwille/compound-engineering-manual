@@ -6,6 +6,7 @@ allowed-tools:
   - Read
   - Write
   - WebFetch
+disable-model-invocation: true
 ---
 
 # Proof - Collaborative Markdown Editor

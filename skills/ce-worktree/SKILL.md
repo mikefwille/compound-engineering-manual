@@ -1,6 +1,7 @@
 ---
 name: ce-worktree
 description: Set up isolated git worktrees — create a new branch for fresh work, or attach a worktree to an existing branch, PR, or commit. Use when starting isolated work or isolating an existing ref.
+disable-model-invocation: true
 ---
 
 # Worktree Isolation

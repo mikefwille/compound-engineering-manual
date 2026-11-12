@@ -80,7 +80,7 @@ describe("cline install-skills.sh", () => {
     expect(result.stderr).not.toContain(`removed ${manualSkill}`)
   })
 
-  test("does not overwrite an existing user-managed symlink for an invocable skill", async () => {
+  test("preserves an existing user-managed symlink when the skill is manual-only", async () => {
     const dest = await makeTempDir("cline-skills-user-invocable-")
     const userSkill = await makeTempDir("cline-user-ce-plan-")
     await fs.writeFile(path.join(userSkill, "SKILL.md"), "# user ce-plan\n")
@@ -95,7 +95,7 @@ describe("cline install-skills.sh", () => {
     expect(result.exitCode).toBe(0)
     expect(await fs.realpath(link)).toBe(await fs.realpath(userSkill))
     expect(result.stderr).toContain(
-      `skip ${invocableSkill}: ${link} is an existing user-managed symlink (not overwritten)`,
+      `skip ${invocableSkill}: manual-only (disable-model-invocation)`,
     )
   })
 

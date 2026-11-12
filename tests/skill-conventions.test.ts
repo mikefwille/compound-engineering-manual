@@ -183,54 +183,6 @@ const INSTALLED_PLUGIN_PATH_EXEMPTIONS = new Map<string, string>([])
 const DESCRIPTION_CHAR_BUDGET = 1024
 const NAME_CHAR_BUDGET = 64
 
-const EXPECTED_USER_INVOKED_SKILLS = new Set([
-  // ce-help: recommends a command and stops. Firing it unasked on a question like
-  // "what next?" would halt work in progress, and a miss costs little because the
-  // agent can still answer from skill descriptions. No skill or pipeline calls it.
-  "ce-help",
-  "ce-dogfood",
-  "ce-polish",
-  "ce-product-pulse",
-  "ce-promote",
-  // ce-retune: a measurement-first corpus retune that refuses to run without a
-  // benchmark harness and spends many paid runs. No skill or pipeline dispatches
-  // it, and model-routing it would let a cheaper request escalate into an
-  // expensive measurement program, so it stays user-invoked.
-  "ce-retune",
-  "ce-sweep",
-  "ce-test-xcode",
-  // wtf: answers a user who says they did not follow something. No skill or
-  // pipeline calls it, and model-routing it would re-explain replies unasked.
-  "wtf",
-])
-
-const REQUIRED_MODEL_INVOKED_CALLEES = new Set([
-  "ce-brainstorm",
-  "ce-code-review",
-  "ce-commit",
-  "ce-commit-push-pr",
-  "ce-compound",
-  "ce-compound-refresh",
-  "ce-debug",
-  "ce-doc-review",
-  "ce-ideate",
-  "ce-noslop",
-  "ce-optimize",
-  "ce-plan",
-  "ce-proof",
-  "ce-prototype",
-  "ce-resolve-pr-feedback",
-  "ce-riffrec-feedback-analysis",
-  // ce-setup: ce-compound hands standards work to it.
-  "ce-setup",
-  "ce-simplify-code",
-  "ce-strategy",
-  "ce-test-browser",
-  "ce-work",
-  "ce-worktree",
-  "lfg",
-])
-
 // ---------------------------------------------------------------------------
 // Skill enumeration
 // ---------------------------------------------------------------------------
@@ -876,37 +828,13 @@ describe("skill reference integrity (AGENTS.md 'File References in Skills')", ()
 })
 
 describe("skill frontmatter limits (Anthropic skill spec)", () => {
-  test("skill invocation classification matches the intended model/user split", () => {
-    const actualUserInvoked = new Set<string>()
-    const actualModelInvoked = new Set<string>()
+  test("every shipped skill is user-invoked in the manual fork", () => {
+    expect(skillDirs.length).toBeGreaterThan(0)
     for (const skill of skillDirs) {
-      const skillMdPath = path.join(skill.absPath, "SKILL.md")
-      const raw = readFileSync(skillMdPath, "utf8")
-      const { data } = parseFrontmatter(raw, skillMdPath)
-      const name = typeof data.name === "string" ? data.name : path.basename(skill.absPath)
-      if (data["disable-model-invocation"] === true) {
-        actualUserInvoked.add(name)
-      } else {
-        actualModelInvoked.add(name)
-      }
+      const file = path.join(skill.absPath, "SKILL.md")
+      const { data } = parseFrontmatter(readFileSync(file, "utf8"), file)
+      expect(data["disable-model-invocation"], file).toBe(true)
     }
-
-    const missingUserInvoked = [...EXPECTED_USER_INVOKED_SKILLS].filter((name) => !actualUserInvoked.has(name))
-    const unexpectedUserInvoked = [...actualUserInvoked].filter((name) => !EXPECTED_USER_INVOKED_SKILLS.has(name))
-    const disabledRequiredCallees = [...REQUIRED_MODEL_INVOKED_CALLEES].filter((name) => !actualModelInvoked.has(name))
-
-    expect(
-      missingUserInvoked,
-      `These skills should be user-invoked only via disable-model-invocation: true:\n${missingUserInvoked.join("\n")}`,
-    ).toEqual([])
-    expect(
-      unexpectedUserInvoked,
-      `Unexpected user-invoked skills. If intentional, update EXPECTED_USER_INVOKED_SKILLS and verify no model-routed caller depends on them:\n${unexpectedUserInvoked.join("\n")}`,
-    ).toEqual([])
-    expect(
-      disabledRequiredCallees,
-      `These skills must remain model-invoked because pipelines or sibling skills call them:\n${disabledRequiredCallees.join("\n")}`,
-    ).toEqual([])
   })
 
   // Codex ignores the frontmatter flag; its opt-out is the skill's own

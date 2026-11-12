@@ -2,6 +2,7 @@
 name: ce-babysit-pr
 description: "Babysits an open GitHub PR until merge-ready, first judging whether an old PR still belongs. Use when asked to watch a PR over time or update an old one — not for one-shot comment resolution or one CI failure. GitHub (incl. Enterprise) only."
 argument-hint: "[PR number|URL|blank=current branch] [watch|checkpoint] [duration] [posture:target|stack-ready|stack-land]"
+disable-model-invocation: true
 ---
 
 # Babysit a PR

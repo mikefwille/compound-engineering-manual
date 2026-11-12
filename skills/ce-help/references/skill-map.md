@@ -6,43 +6,43 @@ Recommend one skill. Bring in a second when the situation falls between two skil
 
 | Goal | Skill |
 |---|---|
-| Find ideas worth working on | `ce-ideate` |
-| Turn a rough idea into requirements | `ce-brainstorm` |
-| Plan multi-step work, or deepen a plan | `ce-plan` |
-| Build from a plan or a clear request | `ce-work` |
-| Hand off the remaining steps from any point, ending in an open PR for a code change | `lfg` |
-| Capture a lesson from solved work that the final code does not show | `ce-compound` |
+| Find ideas worth working on | `ce-ideate` (manual) |
+| Turn a rough idea into requirements | `ce-brainstorm` (manual) |
+| Plan multi-step work, or deepen a plan | `ce-plan` (manual) |
+| Build from a plan or a clear request | `ce-work` (manual) |
+| Hand off the remaining steps from any point, ending in an open PR for a code change | `lfg` (manual) |
+| Capture a lesson from solved work that the final code does not show | `ce-compound` (manual) |
 | Review captured learnings: update, merge, shorten, or delete them, and keep standards current | `ce-compound` (refresh) |
-| An existing prompt or schedule uses the old refresh name, which still works but is deprecated | `ce-compound-refresh` |
-| Write or update `STRATEGY.md` | `ce-strategy` |
+| An existing prompt or schedule uses the old refresh name, which still works but is deprecated | `ce-compound-refresh` (manual) |
+| Write or update `STRATEGY.md` | `ce-strategy` (manual) |
 | Get a report on usage, errors, and performance | `ce-product-pulse` (manual) |
 | Collect feedback from Slack or GitHub into a plan | `ce-sweep` (manual) |
-| Find what slowed agents down in this repo and fix the environment | `ce-retro` |
-| Find and fix the cause of a bug or failing behavior | `ce-debug` |
-| Move a measurable metric on a working system | `ce-optimize` |
-| Learn how or why something works, or what happened over a stretch of work | `ce-explain` |
-| Get a verdict on a technology, a document, or some options | `ce-pov` |
-| Develop competing solutions and pick a winner | `ce-bakeoff` |
-| Try how something should work or feel with a throwaway build | `ce-prototype` |
-| Review code or a PR | `ce-code-review` |
-| Review a requirements doc or plan | `ce-doc-review` |
-| Simplify code, or prune low-value tests and comments | `ce-simplify-code` |
-| Commit without pushing | `ce-commit` |
-| Commit, push, and open a PR, or write a PR description | `ce-commit-push-pr` |
-| Address feedback already left on a PR | `ce-resolve-pr-feedback` |
-| Watch a PR, fix comments and CI, and judge whether an old PR still belongs | `ce-babysit-pr` |
-| Work in an isolated git worktree | `ce-worktree` |
-| Run browser tests for the current change | `ce-test-browser` |
+| Find what slowed agents down in this repo and fix the environment | `ce-retro` (manual) |
+| Find and fix the cause of a bug or failing behavior | `ce-debug` (manual) |
+| Move a measurable metric on a working system | `ce-optimize` (manual) |
+| Learn how or why something works, or what happened over a stretch of work | `ce-explain` (manual) |
+| Get a verdict on a technology, a document, or some options | `ce-pov` (manual) |
+| Develop competing solutions and pick a winner | `ce-bakeoff` (manual) |
+| Try how something should work or feel with a throwaway build | `ce-prototype` (manual) |
+| Review code or a PR | `ce-code-review` (manual) |
+| Review a requirements doc or plan | `ce-doc-review` (manual) |
+| Simplify code, or prune low-value tests and comments | `ce-simplify-code` (manual) |
+| Commit without pushing | `ce-commit` (manual) |
+| Commit, push, and open a PR, or write a PR description | `ce-commit-push-pr` (manual) |
+| Address feedback already left on a PR | `ce-resolve-pr-feedback` (manual) |
+| Watch a PR, fix comments and CI, and judge whether an old PR still belongs | `ce-babysit-pr` (manual) |
+| Work in an isolated git worktree | `ce-worktree` (manual) |
+| Run browser tests for the current change | `ce-test-browser` (manual) |
 | Test an iOS app on the simulator | `ce-test-xcode` (manual) |
 | Refine the UX of a working feature with live feedback | `ce-polish` (manual) |
 | Have an agent test the branch in a browser and fix small breaks | `ce-dogfood` (manual) |
-| Share or edit markdown in Proof | `ce-proof` |
-| Continue work in another session or agent | `ce-handoff` |
+| Share or edit markdown in Proof | `ce-proof` (manual) |
+| Continue work in another session or agent | `ce-handoff` (manual) |
 | Draft launch copy for a shipped feature | `ce-promote` (manual) |
-| Rewrite, check, or draft prose with no AI tells | `ce-noslop` |
+| Rewrite, check, or draft prose with no AI tells | `ce-noslop` (manual) |
 | Have the last message, or supplied text, explained plainly | `wtf` (manual) |
-| Turn a Riffrec recording, video, or notes into feedback | `ce-riffrec-feedback-analysis` |
-| Check tools and repo config, or scaffold a pack or review docs | `ce-setup` |
+| Turn a Riffrec recording, video, or notes into feedback | `ce-riffrec-feedback-analysis` (manual) |
+| Check tools and repo config, or scaffold a pack or review docs | `ce-setup` (manual) |
 | Retune a skill collection for a new model | `ce-retune` (manual) |
 | Get oriented in CE | `ce-help` (manual) |
 

@@ -1,3 +1,12 @@
+# Compound Engineering Manual
+
+A manual-only fork of [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) for Claude Code and Codex.
+All skills require explicit invocation, including the repository-local authoring skill.
+Skill names, instruction bodies, resources, and the runtime plugin ID remain upstream-compatible.
+See [MANUAL.md](MANUAL.md) for maintenance and invocation limits.
+
+---
+
 <div align="center">
 
 <img src="assets/logo.png" alt="Compound Engineering" width="120">
